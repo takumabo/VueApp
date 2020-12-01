@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>VueApp</title>
+</head>
+<body>
+    <h1>TODOアプリ</h1>
+
+    <div id="app">
+       <div class="new-todo">
+           <div class="new-todo-item">
+               <label for="new-todo-title">タイトル</label>
+               <input v-model.trim="todoTitle" type="text" id="new-todo-title">
+           </div>
+           <div class="new-todo-item">
+                <label for="new-todo-description">説明</label>
+                <textarea v-model.trim="todoDescription" type="text" id="new-todo-description"></textarea>
+           </div>
+       </div>
+       <div>
+            <div class="todo-search">
+                <div class="todo-search-item">
+                    <label for="todo-search-done">終了したものを非表示にする<input type="checkbox" v-model="hideDoneTodo" id="todo-search-done"></label>
+                </div>
+                <div class="todo-search-item">
+                    <select v-model="order">
+                        <option value="desc">昇順</option>
+                        <option value="asc">降順</option>
+                    </select>
+                </div>
+                <div class="todo-search-item">
+                    <label for="todo-search-keyword">キーワードで検索</label>
+                    <input v-model.trim="searchWord" type="text" id="todo-search-keyword">
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <div id="sample">
+        <button type="button" v-on:click="onClickCountUp($event)">Count Up</button>
+        <p>{{ counter }}</p>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="index.js"></script>
+</body>
+</html>
